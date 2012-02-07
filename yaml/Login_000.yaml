@@ -1,0 +1,18 @@
+login_page_check:
+  - xpath
+  - //h2[contains(text(),'Your 500 free hours are right around the corner')]
+login_send_email:
+  - id
+  - login_email
+  - input
+  - rpowell@engineyard.com
+login_send_password:
+  - id
+  - login_password
+  - input
+  - RO4t03rakyboF1lv
+login_click_login:
+  - xpath
+  - //button[text()='Sign In']
+  - button
+  - ^https://cloud.engineyard.com/accounts/6393/apps$
