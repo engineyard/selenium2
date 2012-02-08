@@ -8,7 +8,7 @@ share_as :Login do
     end
 
     it "should load the login page" do
-      @driver.navigate.to @server_url
+      go_to('server_url')
       wait_for_element('login_page_check')
     end
 
