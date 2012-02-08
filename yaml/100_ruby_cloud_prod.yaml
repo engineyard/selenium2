@@ -1,7 +1,4 @@
 ---
-conditions:
-  -
-    - server
-    - prod
-
-server_url: "https://cloud.engineyard.com/"
+server_url:
+  - "https://cloud.engineyard.com/"
+  - "https://cloud.engineyard.com/"
