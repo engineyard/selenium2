@@ -8,7 +8,7 @@ share_as :Login do
     end
 
     it "should load the login page" do
-      go_to('server_url')
+      go_to('login_url')
       wait_for_element('login_page_check')
     end
 

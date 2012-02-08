@@ -1,4 +1,4 @@
 ---
-server_url:
+login_url:
   - "https://cloud.engineyard.com/"
-  - "https://cloud.engineyard.com/"
+  - "^https://login.engineyard.com/servers.openid.*$"
