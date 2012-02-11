@@ -7,4 +7,6 @@ conditions:
 sections:
 - Login
 - Boot_App
+- Boot_Env
+- Delete_Env
 - Delete_App
