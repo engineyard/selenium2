@@ -1,0 +1,71 @@
+# <input type="text" size="30" name="environment[name]" id="environment_name" />
+boot_env_enter_name:
+  - id
+  - environment_name
+  - input
+  - postgres_todo_test_env
+
+# <label class="radio">
+# <div class="radio" id="uniform-nginx_passenger"><span><input type="radio" value="nginx_passenger" name="environment[app_server_stack_name]" id="nginx_passenger" data-ruby_versions="Ruby 1.8.6,Ruby
+#  1.8.7,REE,Ruby 1.9.3,Ruby 1.9.2" data-recommended_ruby_version="Ruby 1.9.2" style="opacity: 0;" /></span></div>
+# Passenger 2
+# </label>
+boot_env_stack:
+  - xpath
+  #- //label[contains(text(),'<%= $yaml_data['app_stack'] %>')]/input
+  - //label//text()[contains(.,'<%= $yaml_data['app_stack'] %>')]/..
+  - label
+
+# <option value="Ruby 1.8.7">Ruby 1.8.7</option>
+boot_env_pick_runtime:
+  - xpath
+  - //option[text()='<%= $yaml_data['runtime'] %>']
+  - option
+
+# <select name="environment[ruby_version]" id="environment_ruby_version" style="opacity: 0;"
+boot_env_runtime_dropdown:
+  - id
+  - environment_ruby_version
+  - select
+
+boot_env_pick_region:
+  - xpath
+  - //option[text()='<%= $yaml_data['region'] %>']
+  - option
+
+boot_env_region_dropdown:
+  - id
+  - environment_region
+  - select
+
+boot_env_pick_db_stack:
+  - xpath
+  - //option[text()='<%= $yaml_data['db_stack'] %>']
+  - option
+
+boot_env_db_stack_dropdown:
+  - id
+  - db_stack_name
+  - select
+
+# <button type="submit" class="action submit">Create Environment</button>
+boot_env_create:
+  - xpath
+  - //button[text()='Create Environment']
+  - button
+  - "^https://cloud.engineyard.com/app_deployments/[0-9]+/environment/cluster_configurations/new$"
+
+# <input type="radio" value="single" name="cluster_configuration[configuration]" id="configuration_single" style="opacity: 0;" /
+# <input type="radio" value="cluster" name="cluster_configuration[configuration]" id="configuration_cluster" checked="checked" style="opacity: 0;" />
+# <input type="radio" value="custom" name="cluster_configuration[configuration]" id="configuration_custom" style="opacity: 0;" />
+boot_env_pick_cluster:
+  - xpath
+  - //input[@value='<%= $yaml_data['environment_type'] %>']
+  - input
+
+# <button type="submit" class="submit action">Boot This Configuration</button>
+boot_env_boot:
+  - xpath
+  - //button[text()='Boot This Configuration']
+  - button
+  - "^https://cloud.engineyard.com/app_deployments/[0-9]+/environment$"

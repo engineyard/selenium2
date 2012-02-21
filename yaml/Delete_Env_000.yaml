@@ -1,0 +1,29 @@
+delete_env_dashboard:
+  - xpath
+  - //a[@href='/']
+  - a
+  - "^https://cloud.engineyard.com/accounts/6393/apps$"
+
+# <a href="/app_deployments/40326/environment" class="tooltip">postgres_todo_test_env</a>
+# goes to https://cloud.engineyard.com/app_deployments/40326/environment
+delete_env_env_link:
+  - xpath
+  - //a[text()='postgres_todo_test_env']
+  - a
+  - "^https://cloud.engineyard.com/app_deployments/[0-9]+/environment$"
+
+# <a rel="nofollow" data-method="delete" data-confirm="Are you sure? This will delete all volumes and snapshots associated with this postgres_todo_test_env environment. There is no undo. This may take a minute so be patient" class="button delete" href="/app_deployments/40338/environment" method="delete">Delete</a>
+delete_env_delete:
+  - xpath
+  - "//a[contains(@class,'delete')]"
+  - a
+  - "^https://cloud.engineyard.com/apps/[0-9]+/environments$"
+  - "Are you sure? This will delete all volumes and snapshots associated with this postgres_todo_test_env environment. There is no undo. This may take a minute so be patient"
+
+# <a method="delete" href="/app_deployments/40360/environment/terminate" class="button" data-confirm="Stopping this environment will save a snapshot, stop your application(s), and shut down your instances. You can later re-provision the instances using the snapshot. Proceed?" data-method="delete" rel="nofollow" title="Stop environment">Stop</a>
+delete_env_stop:
+  - xpath
+  - "//a[text()='Stop']"
+  - a
+  - "^https://cloud.engineyard.com/app_deployments/[0-9]+/environment$"
+  - "Stopping this environment will save a snapshot, stop your application(s), and shut down your instances. You can later re-provision the instances using the snapshot. Proceed?"

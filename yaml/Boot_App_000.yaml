@@ -1,0 +1,46 @@
+boot_app_click_new_app:
+  - id
+  - new_application
+  - a
+  - "^https://cloud.engineyard.com/accounts/6393/apps/new$"
+
+boot_app_enter_git_url:
+  - id
+  - app_repository_uri
+  - 'input'
+  - <%= $yaml_data['app_url'] %>
+#<input type="text" size="30" placeholder="git@github.com:user/example.git" name="app[repository_uri]" id="
+
+boot_app_enter_app_name:
+  - id
+  - app_name
+  - 'input'
+  - postgres_todo_test
+#  <input type="text" size="30" pattern="\w*" name="app[name]" id="app_name" />
+
+boot_app_app_type_dropdown:
+  - id
+  - app_app_type_id
+  - select
+
+boot_app_pick_app_type:
+  - xpath
+  - //option[text()='<%= $yaml_data['app_type'] %>']
+  - option
+#  <label for="app_app_type_id">Application Type</label><div
+#  class="selector" id="uniform-app_app_type_id"><span
+#  style="-moz-user-select: none;">Rails 3</span><select
+#  name="app[app_type_id]" id="app_app_type_id" style="opacity:
+#  0;"><option value="rack">Rack</option>
+#  <option value="merb">Merb</option>
+#  <option value="sinatra">Sinatra</option>
+#  <option value="rails2">Rails 2</option>
+#  <option selected="selected" value="rails3">Rails
+#  3</option></select></div>
+
+boot_app_app_submit:
+  - xpath
+  - //button[text()='Create Application']
+  - button
+  - "^https://cloud.engineyard.com/apps/[0-9]+/environments/new$"
+# <button type="submit" class="action submit">Create Application</button>
