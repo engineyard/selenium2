@@ -1,0 +1,178 @@
+    1  emerge -av vnc
+    2  emerge -av Xvnc
+    3  emerge -av vnc-server
+    4  eix vnc
+    5  emerge -av vnc
+    6  emerge -av tightvnc
+    7  man -k vnc
+    8  Xvnc
+    9  find / -name '*vnc*'
+   10  eix vnc
+   11  /usr/bin/vncconnect
+   12  /usr/bin/vncviewer 
+   13  /usr/bin/vncviewer --help
+   14  emerge -av x11vnc
+   15  emerge -pv tightvnc
+   16  USE="server" emerge -av tightvnc
+   17  vim /etc/portage/package.use/local
+   18  mkdir -p /etc/portage/package.use/
+   19  vim /etc/portage/package.use/local
+   20  emerge -av tightvnc
+   21  /etc/init.d/vnc start
+   22  vim /etc/conf.d/vnc
+   23  /etc/init.d/vnc start
+   24  vim /etc/conf.d/vnc
+   25  man vnc
+   26  man -k vc
+   27  man -k vnc
+   28  jobs
+   29  fg
+   30  fg
+   31  man -k vnc
+   32  vncpasswd 
+   33  vncpasswd 
+   34  /etc/init.d/vnc start
+   35  lsof -i -Pn | grep LIST
+   36  vncpasswd 
+   37  emerge -av firefox
+   38  eix firefox
+   39  emerge -av mozille-firefox-bin
+   40  emerge -av mozilla-firefox-bin
+   41  emerge -av mozilla-firefox
+   42  emerge -av mozilla-firefox-bin
+   43  vim /etc/portage/package.use/local
+   44  emerge -av mozilla-firefox
+   45  vim /etc/portage/package.use/local
+   46  emerge -av mozilla-firefox
+   47  firefox 
+   48  firefox --help
+   49  firefox --display:1
+   50  firefox --display=:1
+   51  java
+   52  emerge -av sun-jdk
+   53  java
+   54  wget http://selenium.googlecode.com/files/selenium-server-standalone-2.19.0.jar
+   55  java -jar selenium-server-standalone-2.19.0.jar 
+   56  bg
+   57  ls
+   58  cd selenium
+   59  cd selenium2
+   60  set -o vi
+   61  bin/runtest.rb -D -p 7444 -t postgres -c app_url=https://github.com/engineyard/todo -c app_stack=Trinidad -c runtime='JRuby 1.6.6 (ruby-1.8.7-p330)' -c region='Europe' -c app_type='Rails 3' -c cpu_type='32-bit' -c environment_type='single' -c db_stack='PostgreSQL 9.1.x (Beta)'
+   62  emerge -av rlwrap
+   63  bin/runtest.rb -D -p 7444 -t postgres -c app_url=https://github.com/engineyard/todo -c app_stack=Trinidad -c runtime='JRuby 1.6.6 (ruby-1.8.7-p330)' -c region='Europe' -c app_type='Rails 3' -c cpu_type='32-bit' -c environment_type='single' -c db_stack='PostgreSQL 9.1.x (Beta)'
+   64  gem install rspec
+   65  man gem
+   66  gem --help
+   67  gem help install
+   68  gem install rspec
+   69  gem install rspec-expectations
+   70  gem install rspec
+   71  bin/runtest.rb -D -p 7444 -t postgres -c app_url=https://github.com/engineyard/todo -c app_stack=Trinidad -c runtime='JRuby 1.6.6 (ruby-1.8.7-p330)' -c region='Europe' -c app_type='Rails 3' -c cpu_type='32-bit' -c environment_type='single' -c db_stack='PostgreSQL 9.1.x (Beta)'
+   72  gem install selenimu-webdriver
+   73  gem install selenium-webdriver
+   74  sudo gem update â€“system
+   75  sudo gem update â€--system
+   76  gem update â€--system
+   77  gem update --system
+   78  emerge -av ruby
+   79  ACCEPT_KEYWORDS='~amd64' emerge -av ruby
+   80  gem update --system
+   81  gem install selenium-webdriver
+   82  bin/runtest.rb -D -p 7444 -t postgres -c app_url=https://github.com/engineyard/todo -c app_stack=Trinidad -c runtime='JRuby 1.6.6 (ruby-1.8.7-p330)' -c region='Europe' -c app_type='Rails 3' -c cpu_type='32-bit' -c environment_type='single' -c db_stack='PostgreSQL 9.1.x (Beta)'
+   83  gem install rspec
+   84  bin/runtest.rb -D -p 7444 -t postgres -c app_url=https://github.com/engineyard/todo -c app_stack=Trinidad -c runtime='JRuby 1.6.6 (ruby-1.8.7-p330)' -c region='Europe' -c app_type='Rails 3' -c cpu_type='32-bit' -c environment_type='single' -c db_stack='PostgreSQL 9.1.x (Beta)'
+   85  less /usr/bin/rspec 
+   86  gem uninstall rspec
+   87  less /usr/bin/rspec 
+   88  gem uninstall rspec-core
+   89  gem install rspec rspec-core
+   90  bin/runtest.rb -D -p 7444 -t postgres -c app_url=https://github.com/engineyard/todo -c app_stack=Trinidad -c runtime='JRuby 1.6.6 (ruby-1.8.7-p330)' -c region='Europe' -c app_type='Rails 3' -c cpu_type='32-bit' -c environment_type='single' -c db_stack='PostgreSQL 9.1.x (Beta)'
+   91  gem install ruby-debug
+   92  bin/runtest.rb -D -p 7444 -t postgres -c app_url=https://github.com/engineyard/todo -c app_stack=Trinidad -c runtime='JRuby 1.6.6 (ruby-1.8.7-p330)' -c region='Europe' -c app_type='Rails 3' -c cpu_type='32-bit' -c environment_type='single' -c db_stack='PostgreSQL 9.1.x (Beta)'
+   93  bin/runtest.rb -D -t postgres -c app_url=https://github.com/engineyard/todo -c app_stack=Trinidad -c runtime='JRuby 1.6.6 (ruby-1.8.7-p330)' -c region='Europe' -c app_type='Rails 3' -c cpu_type='32-bit' -c environment_type='single' -c db_stack='PostgreSQL 9.1.x (Beta)'
+   94  export DISPLAY=':1'
+   95  bin/runtest.rb -D -t postgres -c app_url=https://github.com/engineyard/todo -c app_stack=Trinidad -c runtime='JRuby 1.6.6 (ruby-1.8.7-p330)' -c region='Europe' -c app_type='Rails 3' -c cpu_type='32-bit' -c environment_type='single' -c db_stack='PostgreSQL 9.1.x (Beta)'
+   96  man firefox
+   97  firefox -help
+   98  fg
+   99  java -jar selenium-server-standalone-2.19.0.jar
+  100  DISPLAY=':1' java -jar ~/selenium-server-standalone-2.19.0.jar
+  101  bg
+  102  bin/runtest.rb -D -t postgres -c app_url=https://github.com/engineyard/todo -c app_stack=Trinidad -c runtime='JRuby 1.6.6 (ruby-1.8.7-p330)' -c region='Europe' -c app_type='Rails 3' -c cpu_type='32-bit' -c environment_type='single' -c db_stack='PostgreSQL 9.1.x (Beta)'
+  103  gem install erubis
+  104  bin/runtest.rb -D -t postgres -c app_url=https://github.com/engineyard/todo -c app_stack=Trinidad -c runtime='JRuby 1.6.6 (ruby-1.8.7-p330)' -c region='Europe' -c app_type='Rails 3' -c cpu_type='32-bit' -c environment_type='single' -c db_stack='PostgreSQL 9.1.x (Beta)'
+  105  jobs
+  106  fg
+  107  history >/tmp/crap
+  109  cp /tmp/crap SETUP
+  110  cd ..
+  111  tar -xvf firefox-10.0.1.tar.bz2
+  112  ls
+  113  cd firefox
+  114  ls
+  115  ./firefox
+  116  emerge -av libxul
+  117  eix gtk
+  118  emerge -av 'x11-libs/gtk+'
+  119  ./firefox
+  120  emerge -av net-libs/xulrunner
+  121  ./firefox
+  122  find / -name libxul.so
+  123  file firefox
+  124  file /usr/lib64/xulrunner-1.9/libxul.so
+  125  ls -l
+  126  export LD_LIBRARY_PATH=/root/firefox:$LD_LIBRARY_PATH
+  127  ./firefox
+  128  eix xrender
+  129  emerge -av x11-libs/libXrender
+  130  find . -type f | xargs file | grep 64
+  131  find . -type f | xargs file | grep 32
+  132  emerge -av x11-libs/libXrender
+  133  ls
+  134  d ..
+  135  cd ..
+  136  rm -rf firefox
+  137  wget 'http://releases.mozilla.org/pub/mozilla.org/firefox/releases/10.0.1/linux-x86_64/en-US/firefox-10.0.1.tar.bz2'
+  138  ls -lrt
+  139  rm firefox-10.0.1.tar.bz2
+  140  mv firefox-10.0.1.tar.bz2.1 firefox-10.0.1-x86_64.tar.bz2
+  141  tar -xvf firefox-10.0.1-x86_64.tar.bz2
+  142  cd firefox
+  143  ./firefox
+  144  eix asound
+  145  locate libasound.so.2
+  146  find / -name libasound.so.2:
+  147  find / -name libasound.so.2
+  148  eix soundlibs
+  149  emerge -av app-emulation/emul-linux-x86-soundlibs
+  150  top
+  151  fg
+  152  emerge -av app-emulation/emul-linux-x86-soundlibs
+  153  ACCEPT_KEYWORDS='~amd64' emerge -av app-emulation/emul-linux-x86-soundlibs
+  154  bg
+  155  tail -f /var/log/emerge-fetch.lo
+  156  tail -f /var/log/emerge-fetch.log
+  157  fg
+  158  eix firefox
+  159  fg
+  160  eix alsa
+  161  emerge -av media-libs/alsa-lib
+  162  ./firefox
+  163  history
+
+  167  mv /usr/bin/firefox /usr/bin/firefox-orig
+  168  ln -s /root/firefox/firefox /usr/bin/firefox
+
+
+
+   16  USE="server" emerge -av tightvnc
+   17  vim /etc/portage/package.use/local
+   18  mkdir -p /etc/portage/package.use/
+   19  vim /etc/portage/package.use/local
+   20  emerge -av tightvnc
+   21  /etc/init.d/vnc start
+   22  vim /etc/conf.d/vnc
+   23  /etc/init.d/vnc start
+
+
