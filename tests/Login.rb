@@ -3,8 +3,8 @@ require 'rspec'
 share_as :Login do
   describe 'logging into engineyard ruby cloud' do
     it "should load the remote driver" do
-      @driver.manage.timeouts.implicit_wait = 5 # seconds
-      @driver.class.name.should == "Selenium::WebDriver::Driver"
+      $driver.manage.timeouts.implicit_wait = 5 # seconds
+      $driver.class.name.should == "Selenium::WebDriver::Driver"
     end
 
     it "should load the login page" do
