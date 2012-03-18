@@ -1,0 +1,10 @@
+---
+conditions:
+  -
+    - test_set
+    - setup
+
+sections:
+- Login
+- Boot_App
+- Boot_Env

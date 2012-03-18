@@ -2,12 +2,8 @@ require 'rspec'
 
 share_as :Delete_Env do
   describe 'deleting the env we just made' do
-    it "goes to the dashboard" do
-      check_element_click('delete_env_dashboard')
-    end
-
-    it "clicks on the env" do
-      check_element_click('delete_env_env_link')
+    it "selects the env" do
+      ey_select_env
     end
 
     it "stops the env" do
@@ -24,12 +20,8 @@ share_as :Delete_Env do
       end
     end
 
-    it "goes to the dashboard" do
-      check_element_click('delete_env_dashboard')
-    end
-
-    it "clicks on the env" do
-      check_element_click('delete_env_env_link')
+    it "selects the env" do
+      ey_select_env
     end
 
     it "deletes the env" do
@@ -37,6 +29,5 @@ share_as :Delete_Env do
       check_element_click('delete_env_delete')
       quiesce
     end
-
   end
 end

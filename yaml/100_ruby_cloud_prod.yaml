@@ -1,4 +1,4 @@
 ---
 login_url:
   - "https://cloud.engineyard.com/"
-  - "^https://login.engineyard.com/servers.openid.*$"
+  - "^https://login.engineyard.com/login/oauth/"

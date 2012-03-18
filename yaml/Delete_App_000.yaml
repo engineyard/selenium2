@@ -1,20 +1,7 @@
-delete_app_dashboard:
-  - xpath
-  - //a[@href='/']
-  - a
-  - "^https://cloud.engineyard.com/accounts/6393/apps$"
-
-# <a href="/apps/21014/environments">postgres_todo_test</a>
-delete_app_app_link:
-  - xpath
-  - //a[text()='postgres_todo_test']
-  - a
-  - "^https://cloud.engineyard.com/apps/[0-9]+/environments$"
-
 # <button class='icon delete tooltip' data-confirm='Are you sure you want to delete postgres_todo_test?' title='Delete this application' type='submit'>
 delete_app_delete:
   - xpath
   - "//button[contains(@class,'delete')]"
   - button
   - "^https://cloud.engineyard.com/accounts/[0-9]+/apps$"
-  - "Are you sure you want to delete postgres_todo_test?"
+  - "Are you sure you want to delete <%= $yaml_data['name'] %>?"

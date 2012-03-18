@@ -3,7 +3,7 @@ boot_env_enter_name:
   - id
   - environment_name
   - input
-  - postgres_todo_test_env
+  - <%= $yaml_data['name'] %>_env
 
 # <label class="radio">
 # <div class="radio" id="uniform-nginx_passenger"><span><input type="radio" value="nginx_passenger" name="environment[app_server_stack_name]" id="nginx_passenger" data-ruby_versions="Ruby 1.8.6,Ruby
@@ -36,6 +36,16 @@ boot_env_pick_region:
 boot_env_region_dropdown:
   - id
   - environment_region
+  - select
+
+boot_env_pick_main_stack:
+  - xpath
+  - //option[text()='<%= $yaml_data['main_stack'] %>']
+  - option
+
+boot_env_main_stack_dropdown:
+  - id
+  - environment_stack_label
   - select
 
 boot_env_pick_db_stack:

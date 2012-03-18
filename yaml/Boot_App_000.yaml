@@ -15,7 +15,7 @@ boot_app_enter_app_name:
   - id
   - app_name
   - 'input'
-  - postgres_todo_test
+  - <%= $yaml_data['name'] %>
 #  <input type="text" size="30" pattern="\w*" name="app[name]" id="app_name" />
 
 boot_app_app_type_dropdown:

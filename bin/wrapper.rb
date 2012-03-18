@@ -104,6 +104,26 @@ $yaml_data['sections'].each do |section|
   end
 end
 
+# Now we loop over yaml files for any extra modules
+$yaml_data['wrapper_modules'].each do |wrapper_module|
+  Dir.glob("yaml/#{wrapper_module}*.yaml").each do |file|
+    $debug and puts "wrapper considering loading file: #{file}\n"
+    data = load_yaml_data(file)
+    if data['conditions']
+      check_conditions(data['conditions']) or next
+    end
+
+    $debug and puts "wrapper actually loading file: #{file}\n"
+    #print "yaml_data before #{file}: #{$yaml_data.inspect}\n"
+    puts "Loading data from #{file}\n"
+    data.delete('conditions')
+    $yaml_data.merge!(data)
+    #print "yaml_data after #{file}: #{$yaml_data.inspect}\n"
+  end
+end
+
+
+
 # Now load in any special config
 $yaml_data.merge!($extra_config)
 

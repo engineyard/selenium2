@@ -2,12 +2,8 @@ require 'rspec'
 
 share_as :Delete_App do
   describe 'deleting the app we just made' do
-    it "goes to the dashboard" do
-      check_element_click('delete_app_dashboard')
-    end
-
-    it "clicks on the app" do
-      check_element_click('delete_app_app_link')
+    it "selects the app" do
+      ey_select_app
     end
 
     it "deletes the app" do
