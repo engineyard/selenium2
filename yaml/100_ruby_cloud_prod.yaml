@@ -1,4 +1,4 @@
 ---
 login_url:
-  - "https://cloud.engineyard.com/"
-  - "^https://login.engineyard.com/login/oauth/"
+  - "<%= get_cli_arg('cloud') %>"
+  - "^https://login.*\.engineyard\.com/login/oauth/"

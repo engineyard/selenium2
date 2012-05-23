@@ -3,13 +3,13 @@ delete_env_delete:
   - xpath
   - "//a[contains(@class,'delete')]"
   - a
-  - "^https://cloud.engineyard.com/apps/[0-9]+/environments$"
-  - "Are you sure? This will delete all volumes and snapshots associated with this <%= $yaml_data['name'] %>_env environment. There is no undo. This may take a minute so be patient"
+  - "^<%= get_cli_arg('cloud') %>apps/[0-9]+/environments$"
+  - "Are you sure? This will delete all volumes and snapshots associated with this <%= get_cli_arg('name') %>_env environment. There is no undo. This may take a minute so be patient"
 
 # <a method="delete" href="/app_deployments/40360/environment/terminate" class="button" data-confirm="Stopping this environment will save a snapshot, stop your application(s), and shut down your instances. You can later re-provision the instances using the snapshot. Proceed?" data-method="delete" rel="nofollow" title="Stop environment">Stop</a>
 delete_env_stop:
   - xpath
   - "//a[text()='Stop']"
   - a
-  - "^https://cloud.engineyard.com/app_deployments/[0-9]+/environment$"
+  - "^<%= get_cli_arg('cloud') %>app_deployments/[0-9]+/environment$"
   - "Stopping this environment will save a snapshot, stop your application(s), and shut down your instances. You can later re-provision the instances using the snapshot. Proceed?"

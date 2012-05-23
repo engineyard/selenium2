@@ -1,19 +1,19 @@
 dashboard:
-  - "https://cloud.engineyard.com/"
-  - "^https://cloud.engineyard.com/accounts/[0-9]*/apps$"
+  - "<%= get_cli_arg('cloud') %>"
+  - "^<%= get_cli_arg('cloud') %>accounts/[0-9]*/apps$"
 
 # <a href="/app_deployments/40326/environment" class="tooltip">postgres_todo_test_env</a>
-# goes to https://cloud.engineyard.com/app_deployments/40326/environment
+# goes to <%= get_cli_arg('cloud') %>app_deployments/40326/environment
 env_link:
   - xpath
-  - //a[text()='<%= $yaml_data['name'] %>_env']
+  - //a[text()='<%= get_cli_arg('name') %>_env']
   - a
-  - "^https://cloud.engineyard.com/app_deployments/[0-9]+/environment$"
+  - "^<%= get_cli_arg('cloud') %>app_deployments/[0-9]+/environment$"
 
 # <a href="/apps/21014/environments">postgres_todo_test</a>
 app_link:
   - xpath
-  - //a[text()='<%= $yaml_data['name'] %>']
+  - //a[text()='<%= get_cli_arg('name') %>']
   - a
-  - "^https://cloud.engineyard.com/apps/[0-9]+/environments$"
+  - "^<%= get_cli_arg('cloud') %>apps/[0-9]+/environments$"
 

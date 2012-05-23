@@ -3,5 +3,5 @@ delete_app_delete:
   - xpath
   - "//button[contains(@class,'delete')]"
   - button
-  - "^https://cloud.engineyard.com/accounts/[0-9]+/apps$"
-  - "Are you sure you want to delete <%= $yaml_data['name'] %>?"
+  - "^<%= get_cli_arg('cloud') %>accounts/[0-9]+/apps$"
+  - "Are you sure you want to delete <%= get_cli_arg('name') %>?"

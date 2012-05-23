@@ -3,7 +3,7 @@ boot_env_enter_name:
   - id
   - environment_name
   - input
-  - <%= $yaml_data['name'] %>_env
+  - <%= get_cli_arg('name') %>_env
 
 # <label class="radio">
 # <div class="radio" id="uniform-nginx_passenger"><span><input type="radio" value="nginx_passenger" name="environment[app_server_stack_name]" id="nginx_passenger" data-ruby_versions="Ruby 1.8.6,Ruby
@@ -12,14 +12,14 @@ boot_env_enter_name:
 # </label>
 boot_env_stack:
   - xpath
-  #- //label[contains(text(),'<%= $yaml_data['app_stack'] %>')]/input
-  - //label//text()[contains(.,'<%= $yaml_data['app_stack'] %>')]/..
+  #- //label[contains(text(),'<%= get_cli_arg('app_stack') %>')]/input
+  - //label//text()[contains(.,'<%= get_cli_arg('app_stack') %>')]/..
   - label
 
 # <option value="Ruby 1.8.7">Ruby 1.8.7</option>
 boot_env_pick_runtime:
   - xpath
-  - //option[text()='<%= $yaml_data['runtime'] %>']
+  - //option[text()='<%= get_cli_arg('runtime') %>']
   - option
 
 # <select name="environment[ruby_version]" id="environment_ruby_version" style="opacity: 0;"
@@ -30,7 +30,7 @@ boot_env_runtime_dropdown:
 
 boot_env_pick_region:
   - xpath
-  - //option[text()='<%= $yaml_data['region'] %>']
+  - //option[text()='<%= get_cli_arg('region') %>']
   - option
 
 boot_env_region_dropdown:
@@ -40,7 +40,7 @@ boot_env_region_dropdown:
 
 boot_env_pick_main_stack:
   - xpath
-  - //option[text()='<%= $yaml_data['main_stack'] %>']
+  - //option[text()='<%= get_cli_arg('main_stack') %>']
   - option
 
 boot_env_main_stack_dropdown:
@@ -50,7 +50,7 @@ boot_env_main_stack_dropdown:
 
 boot_env_pick_db_stack:
   - xpath
-  - //option[text()='<%= $yaml_data['db_stack'] %>']
+  - //option[text()='<%= get_cli_arg('db_stack') %>']
   - option
 
 boot_env_db_stack_dropdown:
@@ -63,14 +63,14 @@ boot_env_create:
   - xpath
   - //button[text()='Create Environment']
   - button
-  - "^https://cloud.engineyard.com/app_deployments/[0-9]+/environment/cluster_configurations/new$"
+  - "^<%= get_cli_arg('cloud') %>app_deployments/[0-9]+/environment/cluster_configurations/new$"
 
 # <input type="radio" value="single" name="cluster_configuration[configuration]" id="configuration_single" style="opacity: 0;" /
 # <input type="radio" value="cluster" name="cluster_configuration[configuration]" id="configuration_cluster" checked="checked" style="opacity: 0;" />
 # <input type="radio" value="custom" name="cluster_configuration[configuration]" id="configuration_custom" style="opacity: 0;" />
 boot_env_pick_cluster:
   - xpath
-  - //input[@value='<%= $yaml_data['environment_type'] %>']
+  - //input[@value='<%= get_cli_arg('cluster_type') %>']
   - input
 
 # <button type="submit" class="submit action">Boot This Configuration</button>
@@ -78,4 +78,100 @@ boot_env_boot:
   - xpath
   - //button[text()='Boot This Configuration']
   - button
-  - "^https://cloud.engineyard.com/app_deployments/[0-9]+/environment$"
+  - "^<%= get_cli_arg('cloud') %>app_deployments/[0-9]+/environment$"
+
+# <input class="digits" id="cluster_configuration_app_server_count" name="cluster_configuration[app_server_count]" size="4" type="text" value="2" />
+boot_cluster_number_of_app_instances:
+  - id
+  - cluster_configuration_app_server_count
+  - input
+  - <%= get_cli_arg('number_of_app_instances') %>
+
+# <select id="cluster_configuration_instance_size" name="cluster_configuration[instance_size]">
+# <optgroup label="High CPU">
+# <option value="c1.medium">Medium</option>
+# <option value="c1.xlarge">Extra Large</option>
+# </optgroup>
+# <optgroup label="High Memory">
+# <option value="m2.xlarge">Extra Large</option>
+# <option value="m2.2xlarge">Double Extra Large</option>
+# <option value="m2.4xlarge">Quadruple Extra Large</option>
+# </optgroup>
+# <optgroup label="Normal">
+# <option value="m1.small">Small</option>
+# <option value="m1.large">Large</option>
+# <option value="m1.xlarge">Extra Large</option>
+# </optgroup>
+# </select>
+boot_cluster_app_instance_size_dropdown:
+  - id
+  - cluster_configuration_instance_size
+  - select
+
+boot_cluster_app_instance_size_option:
+  - xpath
+  - //select[@id='cluster_configuration_instance_size']//option[@value='<%= get_cli_arg('app_instance_size') %>']
+  - option
+
+
+# <select id="cluster_configuration_db_instance_size" name="cluster_configuration[db_instance_size]">
+# <optgroup label="High CPU">
+# <option value="c1.medium">Medium</option>
+# <option value="c1.xlarge">Extra Large</option>
+# </optgroup>
+# <optgroup label="High Memory">
+# <option value="m2.xlarge">Extra Large</option>
+# <option value="m2.2xlarge">Double Extra Large</option>
+# <option value="m2.4xlarge">Quadruple Extra Large</option>
+# </optgroup>
+# <optgroup label="Normal">
+# <option value="m1.small">Small</option>
+# <option value="m1.large">Large</option>
+# <option value="m1.xlarge">Extra Large</option>
+# </optgroup>
+# </select>
+boot_cluster_master_db_instance_size_dropdown:
+  - id
+  - cluster_configuration_db_instance_size
+  - select
+
+boot_cluster_master_db_instance_size_option:
+  - xpath
+  - //select[@id='cluster_configuration_db_instance_size']//option[@value='<%= get_cli_arg('master_db_instance_size') %>']
+  - option
+
+# <select id="cluster_configuration_db_slave_size" name="cluster_configuration[db_slave_size]">
+# <optgroup label="High CPU">
+# <option value="c1.medium">Medium</option>
+# <option value="c1.xlarge">Extra Large</option>
+# </optgroup>
+# <optgroup label="High Memory">
+# <option value="m2.xlarge">Extra Large</option>
+# <option value="m2.2xlarge">Double Extra Large</option>
+# <option value="m2.4xlarge">Quadruple Extra Large</option>
+# </optgroup>
+# <optgroup label="No Instance">
+# <option value="" selected="selected">Don't add a database slave</option>
+# </optgroup>
+# <optgroup label="Normal">
+# <option value="m1.small">Small</option>
+# <option value="m1.large">Large</option>
+# <option value="m1.xlarge">Extra Large</option>
+# </optgroup>
+# </select>
+boot_cluster_slave_db_instance_size_dropdown:
+  - id
+  - cluster_configuration_db_slave_size
+  - select
+
+boot_cluster_slave_db_instance_size_option:
+  - xpath
+  - //select[@id='cluster_configuration_db_slave_size']//option[@value='<%= get_cli_arg('slave_db_instance_size') %>']
+  - option
+
+# <input class="digits" id="cluster_configuration_db_slave_count" name="cluster_configuration[db_slave_count]" size="4" type="text" value="0" />
+boot_cluster_slave_db_instance_number:
+  - id
+  - cluster_configuration_db_slave_count
+  - input
+  - <%= get_cli_arg('number_of_slave_db_instances') %>

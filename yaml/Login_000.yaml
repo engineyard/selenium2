@@ -15,4 +15,4 @@ login_click_login:
   - xpath
   - //input[@value='Sign In']
   - input
-  - ^https://cloud.engineyard.com/accounts/6393/apps/?.*$
+  - ^<%= get_cli_arg('cloud') %>accounts/[0-9]+/apps/?.*$
