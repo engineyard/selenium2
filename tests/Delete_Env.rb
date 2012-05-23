@@ -9,15 +9,12 @@ share_as :Delete_Env do
     it "stops the env" do
       $debug and dump_page_source("/tmp/ey_env_to_stop.html")
       check_element_click('delete_env_stop')
+    end
+
+    it "waits for the stopping to actually be done" do
       print "Waiting for environment to stop.  THIS WILL TAKE SEVERAL MINUTES.\n"
-      begin
-        refresh
-        long_wait_for_element( 'delete_env_delete', 6 )
-        $debug and dump_page_source("/tmp/ey_stopping_env.html")
-      rescue Exception => e
-        print "still waiting for booting: #{e}\n"
-        retry
-      end
+      sleep 30
+      ey_element_wait( "the env to be deleted", 'delete_env_delete' )
     end
 
     it "selects the env" do
