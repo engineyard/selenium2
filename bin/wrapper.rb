@@ -27,7 +27,7 @@ end
 $port = ENV['PORT']
 $browser = ENV['BROWSER']
 $test_set = ENV['TEST_SET']
-$extra_config = YAML::load(ENV['CONFIG'])
+$cli_args = YAML::load(ENV['CONFIG'])
 
 def check_conditions(conditions)
   conditions.each do |condition|
@@ -121,11 +121,6 @@ $yaml_data['wrapper_modules'].each do |wrapper_module|
     #print "yaml_data after #{file}: #{$yaml_data.inspect}\n"
   end
 end
-
-
-
-# Now load in any special config
-$yaml_data.merge!($extra_config)
 
 describe "wrapper" do
   include GeneralSeleniumUtility
