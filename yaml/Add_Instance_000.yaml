@@ -1,0 +1,17 @@
+# <a href="/app_deployments/42360/environment/instances/new" class="button tooltip-right-side" data-method="get" title="Add instances to your cluster">Add</a>
+add_instance_add:
+  - xpath
+  - "//a[text()='Add']"
+  - a
+  - "^<%= get_cli_arg('cloud') %>app_deployments/[0-9]+/environment/instances/new$"
+# <input checked="checked" id="app_type" name="instance_role" type="radio" value="app" />
+add_instance_pick_type:
+  - xpath
+  - //input[@value='<%= get_cli_arg('instance_type') %>']
+  - input
+# <button type='submit'>Add to Cluster</button>
+add_instance_final_add:
+  - xpath
+  - //button[text()='Add to Cluster']
+  - button
+  - "^<%= get_cli_arg('cloud') %>app_deployments/[0-9]+/environment$"

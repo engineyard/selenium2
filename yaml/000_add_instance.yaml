@@ -1,0 +1,9 @@
+---
+conditions:
+  -
+    - test_set
+    - add_instance
+
+sections:
+- Login
+- Add_Instance
