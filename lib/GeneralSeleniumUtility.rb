@@ -129,6 +129,17 @@ module GeneralSeleniumUtility
   end
 
   #****************
+  # Gets command line argument values
+  #****************
+  def get_cli_arg( name )
+    if $cli_args.has_key?(name)
+      return $cli_args[name]
+    else
+      raise RSpec::Expectations::ExpectationNotMetError, "Command line argument key '#{name}' not found, exiting."
+    end
+  end
+
+  #****************
   # Go to the page url given by the yaml_data key
   #****************
   def go_to(yaml_data_key)
