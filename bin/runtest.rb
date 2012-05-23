@@ -16,6 +16,7 @@ opts = GetoptLong.new(
   [ '--config', '-c', GetoptLong::REQUIRED_ARGUMENT ],
   [ '--test-set', '-t', GetoptLong::REQUIRED_ARGUMENT ],
   [ '--skip-sections', '-s', GetoptLong::REQUIRED_ARGUMENT ],
+  [ '--fail-fast', '-f', GetoptLong::NO_ARGUMENT ],
   [ '--debug', '-D', GetoptLong::NO_ARGUMENT ]
 )
 
@@ -42,6 +43,7 @@ Optional Arguments:
   --config/-c		directly overrides values in $yaml_data; format is "foo=bar"; default: #{$config['config']}
   --test-set/-t         test set to run; correspondes to a yaml/000*.yaml file generally; default: #{$config['test_set']}
   --skip-sections/-s	tests to skip; example: "BasicSearch,Lucky"; see the yaml/000*.yaml files for section lists (same as the file names without ".rb" in tests/); default: #{$config['skip'].to_s}
+  --fail-fast/-f	exit immediately at the first failure
   --debug/-D		debug mode; default #{$config['debug']}
 
   EOF
@@ -55,6 +57,8 @@ opts.each do |opt, arg|
       usage
     when '--debug'
       $config['debug'] = true
+    when '--fail-fast'
+      $config['fail-fast'] = true
     when '--port'
       $config['port'] = arg
     when '--browser'
@@ -75,9 +79,16 @@ ENV['TEST_SET']=$config['test_set'].to_s
 ENV['CONFIG']=YAML::dump($config['config'])
 ENV['DEBUG']=$config['debug'].to_s
 
+rspec_bits=[]
 if $config['debug']
-  # print "env: "+ENV.inspect+"\n"
-  exec( "rlwrap", "rspec", "#{$0}/../wrapper.rb" )
-else
-  exec( "rspec", "#{$0}/../wrapper.rb" )
+  rspec_bits.push('rlwrap')
 end
+
+rspec_bits.push('rspec')
+  
+if $config['fail-fast']
+  rspec_bits.push('--fail-fast')
+end
+rspec_bits.push( "#{$0}/../wrapper.rb" )
+
+exec(*rspec_bits)
